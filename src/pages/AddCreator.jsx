@@ -28,14 +28,37 @@ const AddCreator = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name='name' placeholder='Name' required />
-      <input name='url' placeholder='URL' required />
-      <textarea name='description' placeholder='Description' required />
-      <input name='imageURL' placeholder='Image URL (optional)' />
-      <button type='submit' disabled={loading}>
-        {loading ? 'Adding...' : 'Add Creator'}
-      </button>
+    <form onSubmit={handleSubmit} className='vertical-form'>
+      <div className='form-group'>
+        <label>
+          Name
+          <input name='name' placeholder='Name' required />
+        </label>
+        <label>
+          URL
+          <input name='url' placeholder='URL' required />
+        </label>
+        <label>
+          Description
+          <textarea name='description' placeholder='Description' required />
+        </label>
+        <label>
+          Image URL
+          <input name='imageURL' placeholder='Image URL (optional)' />
+        </label>
+      </div>
+      <div className='button-group'>
+        <button type='submit' disabled={loading}>
+          {loading ? 'Adding...' : 'Add Creator'}
+        </button>
+        <button
+          type='button'
+          className='cancel-button'
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
+      </div>
       {error && <p>Error: {error}</p>}
     </form>
   );

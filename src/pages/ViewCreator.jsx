@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../client';
 
 const ViewCreator = () => {
@@ -32,8 +32,10 @@ const ViewCreator = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>{creator.name}</h1>
+    <article>
+      <header>
+        <h1>{creator.name}</h1>
+      </header>
       <p>{creator.description}</p>
       <a href={creator.url} target='_blank' rel='noopener noreferrer'>
         Visit Channel
@@ -41,7 +43,12 @@ const ViewCreator = () => {
       {creator.imageURL && (
         <img src={creator.imageURL} alt={`${creator.name}'s image`} />
       )}
-    </div>
+      <footer>
+        <Link to={`/creator/${id}/edit`} role='button' className='secondary'>
+          Edit
+        </Link>
+      </footer>
+    </article>
   );
 };
 
