@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from 'react-router-dom';
 
 const Card = ({ creator }) => {
   return (
@@ -11,6 +11,9 @@ const Card = ({ creator }) => {
       {creator.imageURL && (
         <img src={creator.imageURL} alt={`${creator.name}'s image`} />
       )}
+      <Link to={`/creator/${creator.id}/edit`}>
+        <button>Edit</button>
+      </Link>
     </div>
   );
 };
