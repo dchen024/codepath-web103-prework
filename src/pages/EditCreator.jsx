@@ -48,6 +48,21 @@ const EditCreator = () => {
     }
   };
 
+  // Asynchronous function to delete the creator
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm(
+      'Are you sure you want to delete this content creator?'
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await supabase.from('creators').delete().eq('id', id);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -77,6 +92,15 @@ const EditCreator = () => {
         onChange={handleChange}
       />
       <button type='submit'>Update Creator</button>
+
+      {/* Delete Button */}
+      <button
+        type='button'
+        onClick={handleDelete}
+        style={{ marginTop: '10px', backgroundColor: 'red', color: 'white' }}
+      >
+        Delete Creator
+      </button>
     </form>
   );
 };
