@@ -122,15 +122,15 @@ const EditCreator = () => {
         <button type='submit' disabled={loading}>
           {loading ? 'Updating...' : 'Update Creator'}
         </button>
+        <button type='button' className='delete-button' onClick={handleDelete}>
+          Delete
+        </button>
         <button
           type='button'
-          className='cancel-button'
+          className='secondary'
           onClick={() => navigate('/')}
         >
           Cancel
-        </button>
-        <button type='button' className='cancel-button' onClick={handleDelete}>
-          Delete
         </button>
       </div>
       {error && <p>Error: {error}</p>}

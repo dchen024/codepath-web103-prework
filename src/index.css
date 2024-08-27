@@ -13,13 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.cancel-button {
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Adjust the gap size as needed */
+}
+
+.delete-button {
   background-color: #ff4d4d; /* Red background for cancel button */
   color: white;
   border: 1px solid #ff4d4d;
 }
 
-.cancel-button:hover {
+.delete-button:hover {
   background-color: #ff1a1a; /* Darker red on hover */
   border-color: #ff1a1a;
 }

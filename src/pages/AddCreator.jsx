@@ -53,7 +53,7 @@ const AddCreator = () => {
         </button>
         <button
           type='button'
-          className='cancel-button'
+          className='delete-button'
           onClick={() => navigate('/')}
         >
           Cancel
