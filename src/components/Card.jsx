@@ -15,7 +15,10 @@ const Card = ({ creator }) => {
           <img src={creator.imageURL} alt={`${creator.name}'s image`} />
         )}
       </div>
-      <footer>
+      <footer className='footer-links'>
+        <Link to={`/creator/${creator.id}`} role='button' className='primary'>
+          View
+        </Link>
         <Link
           to={`/creator/${creator.id}/edit`}
           role='button'
