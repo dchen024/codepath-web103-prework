@@ -10,7 +10,10 @@ const ShowCreators = () => {
   useEffect(() => {
     const fetchCreators = async () => {
       try {
-        const { data, error } = await supabase.from('creators').select();
+        const { data, error } = await supabase
+          .from('creators')
+          .select()
+          .order('created_at', { ascending: false });
         if (error) throw new Error(error.message);
         setCreators(data);
       } catch (err) {
